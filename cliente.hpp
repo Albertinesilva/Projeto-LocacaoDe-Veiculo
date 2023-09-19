@@ -1,98 +1,123 @@
 #ifndef CLIENTE_HPP
 #define CLIENTE_HPP
-#include<iostream>
+#include <iostream>
 #include "verificacoesCliente.hpp"
 
 using namespace std;
 
-typedef struct{
+typedef struct
+{
     string cpf;
     string nome;
     Data dataNascimento;
     string cnh;
 
-    bool inserirCPF(){
+    bool inserirCPF()
+    {
         string cpfInserido;
         bool cpfValido;
-        do{
+        do
+        {
             cout << "Insira um cpf válido(apenas numeros) : ";
             cin >> cpfInserido;
+
             cpfValido = verificaCPF(cpfInserido);
-            if(!cpfValido){
-                if(!verificaProsseguimento()){
+
+            if (!cpfValido)
+            {
+                if (!verificaProsseguimento())
+                {
                     return false;
                 }
                 limpaTela();
             }
-        }while(!cpfValido);
+        } while (!cpfValido);
+        
         cpf = cpfInserido;
         return true;
     }
 
-    bool inserirNome(){
+    bool inserirNome()
+    {
         string nomeInserido;
         bool nomeValido;
-        do{
+        do
+        {
             cout << "Insira um nome válido : ";
             limpaBuffer();
-            getline(cin,nomeInserido);
+            getline(cin, nomeInserido);
             nomeValido = verificaNome(nomeInserido);
-            if(!nomeValido){
-                if(!verificaProsseguimento()){
+            if (!nomeValido)
+            {
+                if (!verificaProsseguimento())
+                {
                     return false;
                 }
                 limpaTela();
             }
-        }while(!nomeValido);
+        } while (!nomeValido);
         nome = nomeInserido;
         return true;
     }
 
-    bool inserirDataNascimento(){
+    bool inserirDataNascimento()
+    {
         Data dataNascInserida;
         string data;
         bool dataNascValida;
-        do{
+        do
+        {
             cout << "Insira uma data de nascimento válida : ";
             limpaBuffer();
-            getline(cin,data);
+            getline(cin, data);
             dataNascInserida.preencheData(data);
             dataNascValida = verificaDataNascimento(dataNascInserida);
-            if(!dataNascValida){
-                if(!verificaProsseguimento()){
+            if (!dataNascValida)
+            {
+                if (!verificaProsseguimento())
+                {
                     return false;
                 }
                 limpaTela();
             }
 
-        }while(!dataNascValida);
+        } while (!dataNascValida);
         dataNascimento = dataNascInserida;
         return true;
     }
 
-    bool inserirCNH(){
+    bool inserirCNH()
+    {
         string cnhInserida;
         bool cnhValida;
-        do{
+        do
+        {
             cout << "Insira um número de cnh válido(apenas números) : ";
             cin >> cnhInserida;
             cnhValida = verificaCNH(cnhInserida);
-            if(!cnhValida){
-                if(!verificaProsseguimento()){
+            if (!cnhValida)
+            {
+                if (!verificaProsseguimento())
+                {
                     return false;
                 }
                 limpaTela();
             }
-        }while(!cnhValida);
+        } while (!cnhValida);
         cnh = cnhInserida;
         return true;
     }
 
-    bool preencheCliente(){
-        if(inserirNome()){
-            if(inserirCPF()){
-                if(inserirDataNascimento()){
-                    if(inserirCNH()){
+    bool preencheCliente()
+    {
+        if (inserirNome())
+        {
+            if (inserirCPF())
+            {
+                if (inserirDataNascimento())
+                {
+                    if (inserirCNH())
+                    {
                         return true;
                     }
                 }
@@ -102,17 +127,16 @@ typedef struct{
         return false;
     }
 
-    void mostraCliente(){
-        cout << endl << "Cliente " << nome << endl;
+    void mostraCliente()
+    {
+        cout << endl
+             << "Cliente " << nome << endl;
         cout << "CPF : " << cpf << endl;
         cout << "CNH : " << cnh << endl;
         cout << "Data de Nascimento : ";
-        dataNascimento.mostraData() ;
+        dataNascimento.mostraData();
     }
 
-
-
-}Cliente;
+} Cliente;
 
 #endif
-

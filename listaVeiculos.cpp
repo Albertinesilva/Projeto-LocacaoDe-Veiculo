@@ -1,11 +1,16 @@
 #include "listaVeiculos.hpp"
 
-void insereVeiculo(vector<Veiculo> &listaVeiculos){
+void insereVeiculo(vector<Veiculo> &listaVeiculos)
+{
     limpaTela();
     Veiculo veiculo;
-    if(veiculo.preencheVeiculo()){
-         for(auto it=listaVeiculos.begin() ; it!=listaVeiculos.end() ; ++it){
-            if(it->placa == veiculo.placa){
+
+    if (veiculo.preencheVeiculo())
+    {
+        for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+        {
+            if (it->placa == veiculo.placa)
+            {
                 cout << "Placa já cadastrado" << endl;
                 cout << "Não foi possivel inserir novo veiculo" << endl;
                 cin.get();
@@ -16,24 +21,29 @@ void insereVeiculo(vector<Veiculo> &listaVeiculos){
         listaVeiculos.push_back(veiculo);
         cout << "Veiculo inserido com sucesso" << endl;
         pause();
-    }else{
+    }
+    else
+    {
         cout << "Não foi possivel inserir novo veiculo" << endl;
         cin.get();
         pause();
     }
-
 }
 
-void excluiVeiculo(vector<Veiculo> &listaVeiculos){
+void excluiVeiculo(vector<Veiculo> &listaVeiculos)
+{
     limpaTela();
     string placaParaBusca;
-    do{
+    do
+    {
         cout << "Insira uma placa válida para exclusão : ";
         cin >> placaParaBusca;
-    }while(!verificaPlaca(placaParaBusca));
+    } while (!verificaPlaca(placaParaBusca));
 
-    for(auto it=listaVeiculos.begin() ; it!=listaVeiculos.end() ; ++it){
-        if(it->placa == placaParaBusca){
+    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+    {
+        if (it->placa == placaParaBusca)
+        {
             listaVeiculos.erase(it);
             cout << "Veiculo excluido com sucesso" << endl;
             pause();
@@ -46,9 +56,11 @@ void excluiVeiculo(vector<Veiculo> &listaVeiculos){
     pause();
 }
 
-void listarVeiculos(vector<Veiculo> &listaVeiculos){
+void listarVeiculos(vector<Veiculo> &listaVeiculos)
+{
     cout << "-----------VEICULOS------------";
-    for(auto it=listaVeiculos.begin() ; it!=listaVeiculos.end() ; ++it){
+    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+    {
         cout << "-------------------------------" << endl;
         it->mostraVeiculo();
     }
@@ -57,90 +69,122 @@ void listarVeiculos(vector<Veiculo> &listaVeiculos){
     pause();
 }
 
-void localizaVeiculo(vector<Veiculo> &listaVeiculos){
-
+void localizaVeiculo(vector<Veiculo> &listaVeiculos)
+{
     string placaParaBusca;
-    do{
+
+    do
+    {
         cout << "Insira um cpf válido para busca : ";
         cin >> placaParaBusca;
-    }while(!verificaPlaca(placaParaBusca));
 
-    for(auto it=listaVeiculos.begin() ; it!=listaVeiculos.end() ; ++it){
-        if(it->placa == placaParaBusca){
+    } while (!verificaPlaca(placaParaBusca));
+
+    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+    {
+        if (it->placa == placaParaBusca)
+        {
             cout << "-------------------------------" << endl;
             it->mostraVeiculo();
             return;
         }
     }
-
 }
 
-void alteraVeiculo(vector<Veiculo> &listaVeiculos){
+void alteraVeiculo(vector<Veiculo> &listaVeiculos)
+{
     string placaParaAlteracao;
-    do{
+    
+    do
+    {
         cout << "Insira a placa do veiculo que deseja alterar dados : ";
         cin >> placaParaAlteracao;
-    }while(!verificaPlaca(placaParaAlteracao));
 
-    for(auto it=listaVeiculos.begin() ; it!=listaVeiculos.end() ; ++it){
-        if(it->placa == placaParaAlteracao){
+    } while (!verificaPlaca(placaParaAlteracao));
+
+    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+    {
+        if (it->placa == placaParaAlteracao)
+        {
             int escolha;
-            do{
+            do
+            {
                 limpaTela();
                 cout << "-------------------------------" << endl;
                 it->mostraVeiculo();
-                cout << endl << "Qual dados deseja alterar? " << endl;
-                cout << "1. Renavan" << endl << "2. Placa" << endl << "3. Data de Retirada" << endl << "4. Data de Entrega" << endl << "5. Loja de retirada" << endl << "6. Nenhum" << endl;
+                cout << endl
+                     << "Qual dados deseja alterar? " << endl;
+                cout << "1. Renavan" << endl
+                     << "2. Placa" << endl
+                     << "3. Data de Retirada" << endl
+                     << "4. Data de Entrega" << endl
+                     << "5. Loja de retirada" << endl
+                     << "6. Nenhum" << endl;
                 cout << "Escolha : ";
                 cin >> escolha;
                 switch (escolha)
                 {
                 case 1:
-                    if(it->inserirRenavan()){
+                    if (it->inserirRenavan())
+                    {
                         cout << "Renavan alterado com sucesso" << endl;
                         pause();
                         break;
-                    }else{
+                    }
+                    else
+                    {
                         cout << "Alteração de renavan cancelada" << endl;
                         pause();
                         break;
-                    }                       
-                case 2 :
-                    if(it->inserirPlaca()){
+                    }
+                case 2:
+                    if (it->inserirPlaca())
+                    {
                         cout << "Placa alterada com sucesso" << endl;
                         pause();
                         break;
-                    }else{
+                    }
+                    else
+                    {
                         cout << "Alteração de placa cancelada" << endl;
                         pause();
                         break;
-                    }                       
-                case 3 :
-                    if(it->inserirRetirada()){
+                    }
+                case 3:
+                    if (it->inserirRetirada())
+                    {
                         cout << "Data de retirada alterada com sucesso" << endl;
                         pause();
                         break;
-                    }else{
+                    }
+                    else
+                    {
                         cout << "Alteração de data de retirada cancelada" << endl;
                         pause();
                         break;
-                    }                       
-                case 4 :
-                    if(it->inserirEntrega()){
+                    }
+                case 4:
+                    if (it->inserirEntrega())
+                    {
                         cout << "Data de entrega alterada com sucesso" << endl;
                         pause();
                         break;
-                    }else{
+                    }
+                    else
+                    {
                         cout << "Alteração de data de entrega cancelada" << endl;
                         pause();
                         break;
-                    }   
+                    }
                 case 5:
-                    if(it->inserirLoja()){
+                    if (it->inserirLoja())
+                    {
                         cout << "Loja de retirada alterada com sucesso" << endl;
                         pause();
                         break;
-                    }else{
+                    }
+                    else
+                    {
                         cout << "Alteração de loja de retirada cancelada" << endl;
                         pause();
                         break;
@@ -151,7 +195,7 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos){
                 default:
                     break;
                 }
-            }while(escolha!=6);
+            } while (escolha != 6);
         }
     }
 }

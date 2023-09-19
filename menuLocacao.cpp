@@ -1,14 +1,16 @@
 #include "menuLocacao.hpp"
 #include "listaLocacoes.hpp"
 
-void menuLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos,vector<Locacao> &listaLocacao){
+void menuLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao)
+{
     int escolha;
     mostraMenuLocacao();
     escolha = recebeEscolhaLocacao();
-    realizaEscolhaLocacao(escolha,listaClientes,listaVeiculos,listaLocacao);
+    realizaEscolhaLocacao(escolha, listaClientes, listaVeiculos, listaLocacao);
 }
 
-void mostraMenuLocacao(){
+void mostraMenuLocacao()
+{
     limpaTela();
     cout << "Menu de Locação" << endl << endl;
     cout << "1. Incluir Locacao" << endl;
@@ -19,43 +21,59 @@ void mostraMenuLocacao(){
     cout << "Escolha : ";
 }
 
-int recebeEscolhaLocacao(){
+int recebeEscolhaLocacao()
+{
     int escolha;
     bool escolhaValida;
-    do{
+
+    do
+    {
         mostraMenuLocacao();
         cin >> escolha;
-        escolhaValida = (escolha== 0 || escolha== 1 || escolha== 2 || escolha== 3 || escolha== 4);
-        if(!escolhaValida){
+
+        escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4);
+
+        if (!escolhaValida)
+        {
             limpaTela();
             cout << "------Escolha Inválida------" << endl;
             pause();
             limpaBuffer();
         }
-    }while(!escolhaValida);
+
+    } while (!escolhaValida);
     return escolha;
 }
 
-
-void realizaEscolhaLocacao(const int &escolha, vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao){
-  switch (escolha)
+void realizaEscolhaLocacao(const int &escolha, vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao)
+{
+    switch (escolha)
     {
-    case 1 :
-        insereLocacao(listaClientes,listaVeiculos,listaLocacao);
-        break;
-    case 2 :
-        excluiLocacao(listaClientes,listaVeiculos,listaLocacao);
-        break;
-    case 3 :
-        alteraLocacao(listaClientes,listaVeiculos,listaLocacao);
-        break;
-    case 4 :
-        listarLocacao(listaClientes,listaVeiculos,listaLocacao);
+    case 1:
+
+        insereLocacao(listaClientes, listaVeiculos, listaLocacao);
         break;
 
-    case 0 :
-            limpaTela();
-            return;
+    case 2:
+
+        excluiLocacao(listaClientes, listaVeiculos, listaLocacao);
+        break;
+
+    case 3:
+
+        alteraLocacao(listaClientes, listaVeiculos, listaLocacao);
+        break;
+
+    case 4:
+
+        listarLocacao(listaClientes, listaVeiculos, listaLocacao);
+        break;
+
+    case 0:
+
+        limpaTela();
+        return;
+        
     default:
         break;
     }

@@ -3,9 +3,10 @@
 #include "data.hpp"
 #include "horario.hpp"
 
-typedef struct{
+typedef struct
+{
     Data data;
     Horario hora;
-}DataHora;
+} DataHora;
 
 #endif

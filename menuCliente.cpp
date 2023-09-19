@@ -1,7 +1,8 @@
 #include "menuCliente.hpp"
 #include "listaClientes.hpp"
 
-void mostraMenuCliente(){
+void mostraMenuCliente()
+{
     limpaTela();
     cout << "MODULO DE GESTÃO DE CLIENTES" << endl << endl;
     cout << "1. Inserir" << endl;
@@ -11,55 +12,77 @@ void mostraMenuCliente(){
     cout << "5. Localizar" << endl;
     cout << "0. Sair" << endl << endl;
     cout << "Escolha : ";
-
 }
 
-void menuCliente(vector<Cliente> &listaClientes){
+void menuCliente(vector<Cliente> &listaClientes)
+{
     int escolha;
-    do{
+    do
+    {
         escolha = recebeEscolha();
-        realizaEscolha(escolha,listaClientes);
-    }while(escolha!=0);
+        realizaEscolha(escolha, listaClientes);
+
+    } while (escolha != 0);
 }
 
-int recebeEscolha(){
+int recebeEscolha()
+{
     int escolha;
     bool escolhaValida;
-    do{
+    do
+    {
         mostraMenuCliente();
         cin >> escolha;
-        escolhaValida = (escolha== 0 || escolha== 1 || escolha== 2 || escolha== 3 || escolha== 4 || escolha== 5);
-        if(!escolhaValida){
+
+        escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5);
+
+        if (!escolhaValida)
+        {
             limpaTela();
             cout << "------Escolha Inválida------" << endl;
             pause();
             limpaBuffer();
         }
-    }while(!escolhaValida);
+
+    } while (!escolhaValida);
+
     return escolha;
 }
 
-void realizaEscolha(const int &escolha, vector<Cliente> &listaClientes){
-  switch (escolha)
+void realizaEscolha(const int &escolha, vector<Cliente> &listaClientes)
+{
+    switch (escolha)
     {
-    case 1 :
-            insereCliente(listaClientes);
+    case 1:
+
+        insereCliente(listaClientes);
         break;
-    case 2 :
-            excluiCliente(listaClientes);
+
+    case 2:
+
+        excluiCliente(listaClientes);
         break;
-    case 3 :
-            alteraCliente(listaClientes);
+
+    case 3:
+
+        alteraCliente(listaClientes);
         break;
-    case 4 :
-            listarClientes(listaClientes);
+
+    case 4:
+
+        listarClientes(listaClientes);
         break;
-    case 5 :
-            localizaCliente(listaClientes);
+
+    case 5:
+
+        localizaCliente(listaClientes);
         break;
-    case 0 :
-            limpaTela();
-            return;
+
+    case 0:
+
+        limpaTela();
+        return;
+        
     default:
         break;
     }
