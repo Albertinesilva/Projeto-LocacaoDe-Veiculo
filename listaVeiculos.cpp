@@ -108,7 +108,8 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
     {
         cout << "\n\t===============ALTERAR VEICULO============\n";
         cout << "\n\tInsira a placa do veiculo que deseja alterar dados : ";
-        getline(cin, placaParaAlteracao);   
+        getline(cin, placaParaAlteracao); 
+        limpaTela();  
 
     } while (!verificaPlaca(placaParaAlteracao));
 
@@ -116,14 +117,14 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
     for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
     {
         if (it->placa == placaParaAlteracao)
-        {
+        {   
+            cout << "\n\t===============VEICULO ENCONTRADO============\n";
+            it->mostraVeiculo();
+            pause();
+
             int escolha;
             do
             { 
-                cout << "\n\t===============VEICULO ENCONTRADO============\n";
-                it->mostraVeiculo();
-                pause();
-
                 data.mostraDataAtual();
                 cout << "\t========MENU ALTERAR VEICULO=========\n";
                 cout << "\n\t[1] - ALTERAR RENAVAN:";
@@ -134,13 +135,16 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                 cout << "\n\t[0] - SAIR";
                 cout << "\n\tENTRADA ->  ";
                 cin >> escolha;
-                cin.get();
+                limpaBuffer();
 
                 switch (escolha)
                 {
                 case 1:
                     if (it->inserirRenavan())
                     {
+                        limpaTela();
+                        cout << "\n\t===============RENAVAN ALTERADO============\n";
+                        it->mostraVeiculo();
                         cout << "\n\tRenavan alterado com sucesso" << endl;
                         pause();
                         break;
@@ -154,6 +158,9 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                 case 2:
                     if (it->inserirPlaca())
                     {
+                        limpaTela();
+                        cout << "\n\t===============PLACA ALTERADA============\n";
+                        it->mostraVeiculo();
                         cout << "\n\tPlaca alterada com sucesso" << endl;
                         pause();
                         break;
@@ -167,6 +174,9 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                 case 3:
                     if (it->inserirRetirada())
                     {
+                        limpaTela();
+                        cout << "\n\t===============DATA DE RETIRADA ALTERADA============\n";
+                        it->mostraVeiculo();
                         cout << "\n\tData de retirada alterada com sucesso" << endl;
                         pause();
                         break;
@@ -180,6 +190,9 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                 case 4:
                     if (it->inserirEntrega())
                     {
+                        limpaTela();
+                        cout << "\n\t===============DATA DE ENTREGA ALTERADA============\n";
+                        it->mostraVeiculo();
                         cout << "\n\tData de entrega alterada com sucesso" << endl;
                         pause();
                         break;
@@ -193,6 +206,9 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                 case 5:
                     if (it->inserirLoja())
                     {
+                        limpaTela();
+                        cout << "\n\t===============LOJA DE RETIRADA ALTERADA============\n";
+                        it->mostraVeiculo();
                         cout << "\n\tLoja de retirada alterada com sucesso" << endl;
                         pause();
                         break;

@@ -218,10 +218,10 @@ typedef struct
         cout << ++i << "\tVeiculo" << endl;
         cout << "\tRenavan : " << renavan << endl;
         cout << "\tPlaca : " << placa << endl;
-        cout << "\tRetirada : "; retirada.data.mostraData();
-        retirada.hora.mostraHorario();
-        cout << "\tEntrega : "; entrega.data.mostraData();
-        entrega.hora.mostraHorario();
+        cout << "\n\tRetirada : "; retirada.data.mostraData();
+        cout << "\n\tHorário : "; retirada.hora.mostraHorario();
+        cout << "\n\tEntrega : "; entrega.data.mostraData();
+        cout << "\n\tHorário : "; entrega.hora.mostraHorario();
         cout << "\tLoja de retirada : " << lojaRetirada << endl;
         cout << "\t========================================\n";
     }

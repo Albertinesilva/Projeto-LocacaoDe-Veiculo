@@ -45,7 +45,7 @@ typedef struct
 
     void mostraData()
     {
-        cout << dia << " de " << nomeDoMes(mes) << " de " << ano;
+        cout << "\n\t" << dia << " de " << nomeDoMes(mes) << " de " << ano;
     }
 
     void mostraDataAtual()

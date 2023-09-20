@@ -8,7 +8,7 @@ using namespace std;
 
 typedef struct
 {
-    int segundo, minuto, hora;
+    int hora, minuto, segundo;
 
     bool preencheHorario(string horario)
     {
@@ -17,7 +17,7 @@ typedef struct
 
     void mostraHorario()
     {
-        printf(" as %02d:%02d:%02d\n", segundo, minuto, hora);
+        printf("%02d:%02d:%02d\n", segundo, minuto, hora);
     }
     
 } Horario;
