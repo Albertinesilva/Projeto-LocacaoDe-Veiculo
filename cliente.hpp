@@ -16,9 +16,10 @@ typedef struct
     {
         string cpfInserido;
         bool cpfValido;
+        
         do
         {
-            cout << "Insira um cpf válido(apenas numeros) : ";
+            cout << "\n\tInsira um cpf válido(apenas numeros) : ";
             cin >> cpfInserido;
 
             cpfValido = verificaCPF(cpfInserido);
@@ -43,10 +44,12 @@ typedef struct
         bool nomeValido;
         do
         {
-            cout << "Insira um nome válido : ";
+            cout << "\n\tInsira um nome válido : ";
             limpaBuffer();
             getline(cin, nomeInserido);
+
             nomeValido = verificaNome(nomeInserido);
+
             if (!nomeValido)
             {
                 if (!verificaProsseguimento())
@@ -55,7 +58,9 @@ typedef struct
                 }
                 limpaTela();
             }
+
         } while (!nomeValido);
+
         nome = nomeInserido;
         return true;
     }
@@ -65,13 +70,17 @@ typedef struct
         Data dataNascInserida;
         string data;
         bool dataNascValida;
+
         do
         {
-            cout << "Insira uma data de nascimento válida : ";
+            cout << "\n\tInsira uma data de nascimento válida : ";
             limpaBuffer();
             getline(cin, data);
+
             dataNascInserida.preencheData(data);
+
             dataNascValida = verificaDataNascimento(dataNascInserida);
+
             if (!dataNascValida)
             {
                 if (!verificaProsseguimento())
@@ -82,6 +91,7 @@ typedef struct
             }
 
         } while (!dataNascValida);
+
         dataNascimento = dataNascInserida;
         return true;
     }
@@ -90,11 +100,14 @@ typedef struct
     {
         string cnhInserida;
         bool cnhValida;
+
         do
         {
-            cout << "Insira um número de cnh válido(apenas números) : ";
+            cout << "\n\tInsira um número de cnh válido(apenas números) : ";
             cin >> cnhInserida;
+
             cnhValida = verificaCNH(cnhInserida);
+
             if (!cnhValida)
             {
                 if (!verificaProsseguimento())
@@ -103,7 +116,9 @@ typedef struct
                 }
                 limpaTela();
             }
+
         } while (!cnhValida);
+
         cnh = cnhInserida;
         return true;
     }
@@ -123,18 +138,18 @@ typedef struct
                 }
             }
         }
-
         return false;
     }
 
     void mostraCliente()
     {
-        cout << endl
-             << "Cliente " << nome << endl;
-        cout << "CPF : " << cpf << endl;
-        cout << "CNH : " << cnh << endl;
-        cout << "Data de Nascimento : ";
+        cout << "\tCliente " << nome << endl;
+        cout << "\tCPF : " << cpf << endl;
+        cout << "\tCNH : " << cnh << endl;
+        cout << "\tData de Nascimento : ";
         dataNascimento.mostraData();
+        cout << "\tIdade do cliente: " << dataNascimento.anosCompletos() << endl;
+        cout << "\t========================================\n";
     }
 
 } Cliente;

@@ -4,18 +4,19 @@ using namespace std;
 
 void mostraMenuVeiculo()
 {
-    limpaTela();
+    Data data;
+    int escolha = 0;
 
-    cout << "MODULO DE GESTÃO DE VEICULOS" << endl
-         << endl;
-    cout << "1. Inserir" << endl;
-    cout << "2. Excluir" << endl;
-    cout << "3. Alterar Informações" << endl;
-    cout << "4. Listar" << endl;
-    cout << "5. Localizar" << endl;
-    cout << "0. Sair" << endl
-         << endl;
-    cout << "Escolha : ";
+    limpaTela();
+    data.mostraDataAtual();
+    cout << "\t=========MENU VEÍCULO=========";
+    cout << "\n\t[1] - INCLUIR:";
+    cout << "\n\t[2] - EXCLUIR:";
+    cout << "\n\t[3] - ALTERAR INFORMAÇÕES:";
+    cout << "\n\t[4] - LISTAR:";
+    cout << "\n\t[5] - LOCALIZAR:";
+    cout << "\n\t[0] - SAIR";
+    cout << "\n\tENTRADA ->  ";
 }
 
 void menuVeiculo(vector<Veiculo> &listaVeiculos)
@@ -45,7 +46,7 @@ int recebeEscolhaVeiculo()
         if (!escolhaValida)
         {
             limpaTela();
-            cout << "------Escolha Inválida------" << endl;
+            cout << "\n\tENTRADA INVÁLIDA!...";
             cin.clear();
             limpaBuffer();
             pause();
@@ -91,7 +92,7 @@ void realizaEscolhaVeiculo(const int &escolha, vector<Veiculo> &listaVeiculos)
         return;
 
     default:
-    
+
         break;
     }
 }

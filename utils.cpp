@@ -9,17 +9,9 @@ void limpaBuffer()
 
 void pause()
 {
-    cout << "Pressione Enter para continuar...";
-    cout.flush();
-    cin.ignore();
-    int ch;
-
-    if (ch == '\n' || ch == '\r')
-    {
-        while ((ch = getchar()) != EOF && ch != '\n')
-            ;
-    }
-    getchar();
+    cout << "\n\tPressione ENTER para continuar...";
+    cin.get();
+    limpaTela();
 }
 
 void limpaTela()

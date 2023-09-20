@@ -3,15 +3,19 @@
 
 void mostraMenuCliente()
 {
+    Data data;
+    int escolha = 0;
+
     limpaTela();
-    cout << "MODULO DE GESTÃO DE CLIENTES" << endl << endl;
-    cout << "1. Inserir" << endl;
-    cout << "2. Excluir" << endl;
-    cout << "3. Alterar Informações" << endl;
-    cout << "4. Listar" << endl;
-    cout << "5. Localizar" << endl;
-    cout << "0. Sair" << endl << endl;
-    cout << "Escolha : ";
+    data.mostraDataAtual();
+    cout << "\t=========MENU CLIENTE=========";
+    cout << "\n\t[1] - INCLUIR:";
+    cout << "\n\t[2] - EXCLUIR:";
+    cout << "\n\t[3] - ALTERAR INFORMAÇÕES:";
+    cout << "\n\t[4] - LISTAR:";
+    cout << "\n\t[5] - LOCALIZAR:";
+    cout << "\n\t[0] - SAIR";
+    cout << "\n\tENTRADA ->  ";
 }
 
 void menuCliente(vector<Cliente> &listaClientes)
@@ -39,7 +43,7 @@ int recebeEscolha()
         if (!escolhaValida)
         {
             limpaTela();
-            cout << "------Escolha Inválida------" << endl;
+            cout << "\n\t------Escolha Inválida------" << endl;
             pause();
             limpaBuffer();
         }
@@ -82,7 +86,7 @@ void realizaEscolha(const int &escolha, vector<Cliente> &listaClientes)
 
         limpaTela();
         return;
-        
+
     default:
         break;
     }

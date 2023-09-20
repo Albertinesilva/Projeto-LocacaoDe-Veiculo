@@ -1,25 +1,34 @@
 #include "menuPrincipal.hpp"
 
+
 void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao)
 {
     int escolha;
+    Data data;
+
     do
     {
         limpaTela();
-        cout << "MENU PRINCIPAL DE GESTÃO" << endl
-             << endl;
-        cout << "1. Menu de Clientes" << endl
-             << "2. Menu de Veiculos" << endl
-             << "3. Menu de Locacao" << endl
-             << "0. Sair do Programa" << endl
-             << endl;
-        cout << "Escolha : ";
+        data.mostraDataAtual();
+        cout << "\t======MENU PRINCIPAL======";
+        cout << "\n\t[1] - GESTÃO CLIENTE:";
+        cout << "\n\t[2] - GESTÃO VEICULO:";
+        cout << "\n\t[3] - GESTÃO LOCAÇÃO:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
         cin >> escolha;
+
+        if (escolha > 3 || escolha < 0)
+        {
+            limpaTela();
+            cout << "Ops, escolha invalida!...\n";
+            pause();
+        }
 
         switch (escolha)
         {
         case 1:
-
+    
             menuCliente(listaClientes);
             break;
 

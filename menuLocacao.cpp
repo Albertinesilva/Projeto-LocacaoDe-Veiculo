@@ -11,14 +11,17 @@ void menuLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos,
 
 void mostraMenuLocacao()
 {
+    Data data;
+    
     limpaTela();
-    cout << "Menu de Locação" << endl << endl;
-    cout << "1. Incluir Locacao" << endl;
-    cout << "2. Excluir Locacao" << endl;
-    cout << "3. Alterar Locacao" << endl;
-    cout << "4. Lista Todas as Locacoes" << endl;
-    cout << "0. Sair" << endl << endl;
-    cout << "Escolha : ";
+    data.mostraDataAtual();
+    cout << "\t===========MENU===========";
+    cout << "\n\t[1] - INCLUIR LOCAÇÃO:";
+    cout << "\n\t[2] - EXCLUIR LOCAÇÃO:";
+    cout << "\n\t[3] - ALTERAR LOCAÇÃO:";
+    cout << "\n\t[4] - LISTAR LOCAÇÕES:";
+    cout << "\n\t[0] - SAIR";
+    cout << "\n\tENTRADA ->  ";
 }
 
 int recebeEscolhaLocacao()
@@ -36,7 +39,7 @@ int recebeEscolhaLocacao()
         if (!escolhaValida)
         {
             limpaTela();
-            cout << "------Escolha Inválida------" << endl;
+            cout << "\n\tOps, escolha inválida!" << endl;
             pause();
             limpaBuffer();
         }
@@ -73,7 +76,7 @@ void realizaEscolhaLocacao(const int &escolha, vector<Cliente> &listaClientes, v
 
         limpaTela();
         return;
-        
+
     default:
         break;
     }
