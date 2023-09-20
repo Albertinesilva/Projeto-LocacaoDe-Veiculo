@@ -42,6 +42,7 @@ typedef struct
     {
         string nomeInserido;
         bool nomeValido;
+        
         do
         {
             cout << "\n\tInsira um nome válido : ";

@@ -17,7 +17,7 @@ typedef struct
 
     void mostraHorario()
     {
-        printf("%02d:%02d:%02d\n", segundo, minuto, hora);
+        printf(" as %02d:%02d:%02d\n", segundo, minuto, hora);
     }
     
 } Horario;

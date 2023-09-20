@@ -33,6 +33,7 @@ int recebeEscolha()
 {
     int escolha;
     bool escolhaValida;
+
     do
     {
         mostraMenuCliente();
@@ -43,7 +44,7 @@ int recebeEscolha()
         if (!escolhaValida)
         {
             limpaTela();
-            cout << "\n\t------Escolha Inválida------" << endl;
+            cout << "\n\tOps, escolha inválida! Tente novamente.\n";
             pause();
             limpaBuffer();
         }

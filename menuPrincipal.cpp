@@ -17,11 +17,12 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         cout << "\n\t[0] - SAIR";
         cout << "\n\tENTRADA ->  ";
         cin >> escolha;
+        cin.get();  
 
         if (escolha > 3 || escolha < 0)
         {
             limpaTela();
-            cout << "Ops, escolha invalida!...\n";
+            cout << "\n\tOps, escolha invalida!...\n";
             pause();
         }
 

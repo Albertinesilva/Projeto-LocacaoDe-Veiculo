@@ -99,7 +99,7 @@ bool verificaDataNascimento(const Data &dataNascimento)
     }
     else
     {
-        cout << "Clientes menores de idade não tem acesso a locação de veiculos" << endl;
+        cout << "\n\tClientes menores de idade não tem acesso a locação de veiculos" << endl;
         pause();
         return false;
     }
@@ -111,7 +111,7 @@ bool verificaNome(const string &nome)
     {
         if (!isalpha(nome[i]) && !isspace(nome[i]))
         {
-            cout << "Nome inválido, devem conter apenas letras ou espaços." << endl;
+            cout << "\n\tNome inválido, devem conter apenas letras ou espaços." << endl;
             pause();
             return false;
         }

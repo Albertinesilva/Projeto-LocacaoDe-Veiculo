@@ -9,7 +9,7 @@ void limpaBuffer()
 
 void pause()
 {
-    cout << "\n\tPressione ENTER para continuar...";
+    cout << "\n\tPressione ENTER para continuar...\n";
     cin.get();
     limpaTela();
 }
@@ -31,12 +31,14 @@ bool verificaProsseguimento()
     do
     {
         limpaTela();
-        cout << "Deseja continuar cadastro?" << endl << "('s' - Para sim/ 'n' - para não) : ";
+        cout << "\n\tDeseja continuar cadastro?" << endl << "\n\t[s] - para sim | [n] - para não : ";
         cin >> escolha;
         
         if (escolha != 's' && escolha != 'n')
         {
-            cout << "Escolha inválida" << endl;
+            limpaTela();
+            cout << "\n\tOps, escolha inválida! Tente novamente.\n";
+            pause();
         }
         else if (escolha == 'n')
         {
@@ -56,7 +58,7 @@ bool armazenaVerificaSepara(int &dia, int &mes, int &ano, const string &data)
     if (!verificaData(dia, mes, ano))
     {
         limpaTela();
-        cout << "Data invalida" << endl;
+        cout << "\n\tOps, data inválida! Tente novamente.\n";
         return false;
     }
     else
@@ -142,7 +144,7 @@ bool armazenaVerificaSeparaHora(int &segundos, int &minutos, int &horas, const s
     if (!verificaHorario(segundos, minutos, horas))
     {
         limpaTela();
-        cout << "Hora invalida" << endl;
+        cout << "\n\tOps, horário inválido! Tente novamente.\n";
         return false;
     }
     else

@@ -4,7 +4,9 @@
 void menuLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao)
 {
     int escolha;
+
     mostraMenuLocacao();
+    
     escolha = recebeEscolhaLocacao();
     realizaEscolhaLocacao(escolha, listaClientes, listaVeiculos, listaLocacao);
 }

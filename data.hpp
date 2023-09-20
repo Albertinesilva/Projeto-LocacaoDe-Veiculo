@@ -45,7 +45,7 @@ typedef struct
 
     void mostraData()
     {
-        cout << dia << " de " << nomeDoMes(mes) << " de " << ano << endl;
+        cout << dia << " de " << nomeDoMes(mes) << " de " << ano;
     }
 
     void mostraDataAtual()
@@ -70,12 +70,12 @@ typedef struct
 
         if (getTempo()->tm_year % 4 == 0 && getTempo()->tm_year % 100 != 0 || getTempo()->tm_year % 400 == 0)
         {
-            printf("\tANO BISSEXTO, FALTA %i PARA TERMINAR O ANO!...\n", 366 - getTempo()->tm_yday);
+            printf("\tANO BISSEXTO, FALTA %i DIAS PARA TERMINAR O ANO!...\n", 366 - getTempo()->tm_yday);
             printf("\n");
         }
         else
         {
-            printf("\tANO NÃO BISSEXTO, FALTA %i PARA TERMINAR O ANO!...\n", 365 - getTempo()->tm_yday);
+            printf("\tANO NÃO BISSEXTO, FALTA %i DIAS PARA TERMINAR O ANO!...\n", 365 - getTempo()->tm_yday);
             printf("\n");
         }
     }

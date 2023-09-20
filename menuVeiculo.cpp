@@ -40,13 +40,14 @@ int recebeEscolhaVeiculo()
     {
         mostraMenuVeiculo();
         cin >> escolha;
+        cin.get();
 
         escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5);
 
         if (!escolhaValida)
         {
             limpaTela();
-            cout << "\n\tENTRADA INVÁLIDA!...";
+            cout << "\n\tOps, escolha inválida! Tente novamente.\n";
             cin.clear();
             limpaBuffer();
             pause();

@@ -21,8 +21,8 @@ typedef struct
 
         do
         {
-            cout << "Insira um renavan válido(apenas numeros) : ";
-            cin >> renavanInserido;
+            cout << "\n\tInsira um renavan válido (apenas números) : ";
+            getline(cin, renavanInserido);
 
             renavanValido = verificaRenavan(renavanInserido);
 
@@ -47,8 +47,8 @@ typedef struct
 
         do
         {
-            cout << "Insira uma placa válida(Ex : AAA1111) : ";
-            cin >> placaInserida;
+            cout << "\n\tInsira uma placa válida (Ex : AAA1111) : ";
+            getline(cin, placaInserida);
 
             placaValida = verificaPlaca(placaInserida);
 
@@ -78,7 +78,7 @@ typedef struct
             bool dataValida;
             do
             {
-                cout << "Insira uma data de retirada válida(dd/mm/aaaa) : ";
+                cout << "\n\tInsira uma data de retirada válida (dd/mm/aaaa) : ";
                 limpaBuffer();
                 getline(cin, data);
                 dataValida = (retiradaInserida.data.preencheData(data));
@@ -89,7 +89,7 @@ typedef struct
 
             do
             {
-                cout << "Insira uma hora de retirada válida(hh:mm:ss) : ";
+                cout << "\n\tInsira uma hora de retirada válida (hh:mm:ss) : ";
                 limpaBuffer();
                 getline(cin, hora);
 
@@ -127,7 +127,7 @@ typedef struct
             bool dataValida;
             do
             {
-                cout << "Insira uma data de entrega válida(dd/mm/aaaa) : ";
+                cout << "\n\tInsira uma data de entrega válida (dd/mm/aaaa) : ";
                 limpaBuffer();
                 getline(cin, data);
 
@@ -138,7 +138,7 @@ typedef struct
             bool horaValida;
             do
             {
-                cout << "Insira uma hora de entrega válida(hh:mm:ss) : ";
+                cout << "\n\tInsira uma hora de entrega válida (hh:mm:ss) : ";
                 limpaBuffer();
                 getline(cin, hora);
 
@@ -171,8 +171,8 @@ typedef struct
 
         do
         {
-            cout << "Insira uma loja de retirada : ";
-            cin >> lojaInserido;
+            cout << "\n\tInsira uma loja de retirada : ";
+            getline(cin, lojaInserido);
 
             lojaValida = verificaLoja(lojaInserido);
 
@@ -214,23 +214,16 @@ typedef struct
 
     void mostraVeiculo()
     {
-        cout << endl
-             << "Veiculo" << endl;
-        cout << "Renavan : " << renavan << endl;
-        cout << "Placa : " << placa << endl;
-        cout << endl
-             << "Retirada : " << endl;
-
-        retirada.data.mostraData();
-
+        int i = 0;
+        cout << ++i << "\tVeiculo" << endl;
+        cout << "\tRenavan : " << renavan << endl;
+        cout << "\tPlaca : " << placa << endl;
+        cout << "\tRetirada : "; retirada.data.mostraData();
         retirada.hora.mostraHorario();
-
-        cout << endl << "Entrega : " << endl;
-        entrega.data.mostraData();
-
+        cout << "\tEntrega : "; entrega.data.mostraData();
         entrega.hora.mostraHorario();
-
-        cout << endl << "Loja de retirada : " << lojaRetirada << endl;
+        cout << "\tLoja de retirada : " << lojaRetirada << endl;
+        cout << "\t========================================\n";
     }
 
 } Veiculo;
