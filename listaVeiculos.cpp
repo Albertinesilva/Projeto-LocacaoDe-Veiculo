@@ -146,7 +146,6 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                         limpaTela();
                         cout << "\n\t===============RENAVAN ALTERADO============\n";
                         it->mostraVeiculo();
-                        cout << "\n\tRenavan alterado com sucesso" << endl;
                         pause();
                         break;
                     }
@@ -162,7 +161,6 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                         limpaTela();
                         cout << "\n\t===============PLACA ALTERADA============\n";
                         it->mostraVeiculo();
-                        cout << "\n\tPlaca alterada com sucesso" << endl;
                         pause();
                         break;
                     }
@@ -178,7 +176,6 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                         limpaTela();
                         cout << "\n\t===============DATA DE RETIRADA ALTERADA============\n";
                         it->mostraVeiculo();
-                        cout << "\n\tData de retirada alterada com sucesso" << endl;
                         pause();
                         break;
                     }
@@ -194,7 +191,6 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                         limpaTela();
                         cout << "\n\t===============DATA DE ENTREGA ALTERADA============\n";
                         it->mostraVeiculo();
-                        cout << "\n\tData de entrega alterada com sucesso" << endl;
                         pause();
                         break;
                     }
@@ -210,7 +206,6 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
                         limpaTela();
                         cout << "\n\t===============LOJA DE RETIRADA ALTERADA============\n";
                         it->mostraVeiculo();
-                        cout << "\n\tLoja de retirada alterada com sucesso" << endl;
                         pause();
                         break;
                     }
