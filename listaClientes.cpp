@@ -80,16 +80,21 @@ void alteraCliente(vector<Cliente> &listaClientes)
     {
         cout << "\n\tInsira o cpf do cliente que deseja alterar dados : ";
         cin >> cpfParaAlteracao;
+        limpaBuffer();
+        limpaTela();
 
     } while (!verificaCPF(cpfParaAlteracao));
 
     for (auto it = listaClientes.begin(); it != listaClientes.end(); ++it)
     {
         if (it->cpf == cpfParaAlteracao)
-        {
+        {   
+            cout << "\n\t===============CLIENTE ENCONTRADO============\n";
+            it->mostraCliente();
+            pause();
             int escolha;
             do
-            {
+            {   
                 limpaTela();
                 data.mostraDataAtual();
                 cout << "\t==========MENU ALTERAR===========\n";
@@ -100,6 +105,7 @@ void alteraCliente(vector<Cliente> &listaClientes)
                 cout << "\n\t[0] - SAIR";
                 cout << "\n\tENTRADA ->  ";
                 cin >> escolha;
+                limpaBuffer();
 
                 switch (escolha)
                 {
@@ -108,13 +114,16 @@ void alteraCliente(vector<Cliente> &listaClientes)
                     limpaTela();
                     if (it->inserirCPF())
                     {
-                        cout << "\n\tCPF alterado com sucesso" << endl;
+                        limpaTela();
+                        cout << "\n\t===============CPF ALTERADO============\n";
+                        it->mostraCliente();
                         pause();
                         break;
                     }
                     else
                     {
                         cout << "\n\tAlteração de cpf cancelada" << endl;
+                        it->mostraCliente();
                         pause();
                         break;
                     }
@@ -123,7 +132,9 @@ void alteraCliente(vector<Cliente> &listaClientes)
                     limpaTela();
                     if (it->inserirNome())
                     {
-                        cout << "\n\tNome alterado com sucesso" << endl;
+                        limpaTela();
+                        cout << "\n\t===============NOME ALTERADO============\n";
+                        it->mostraCliente();
                         pause();
                         break;
                     }
@@ -138,7 +149,9 @@ void alteraCliente(vector<Cliente> &listaClientes)
                     limpaTela();
                     if (it->inserirCNH())
                     {
-                        cout << "\n\tCNH alterado com sucesso" << endl;
+                        limpaTela();
+                        cout << "\n\t===============CNH ALTERADO============\n";
+                        it->mostraCliente();
                         pause();
                         break;
                     }
@@ -153,7 +166,9 @@ void alteraCliente(vector<Cliente> &listaClientes)
                     limpaTela();
                     if (it->inserirDataNascimento())
                     {
-                        cout << "\n\tData de Nascimento alterada com sucesso" << endl;
+                        limpaTela();
+                        cout << "\n\t===============DATA DE NASCIMENTO ALTERADO============\n";
+                        it->mostraCliente();
                         pause();
                         break;
                     }
@@ -196,6 +211,7 @@ void localizaCliente(vector<Cliente> &listaClientes)
         cout << "\t==========PESQUISAR CLIENTE===========\n";
         cout << "\n\tInsira um cpf válido para busca : ";
         cin >> cpfParaBusca;
+        limpaBuffer();
 
     } while (!verificaCPF(cpfParaBusca));
 
@@ -210,4 +226,8 @@ void localizaCliente(vector<Cliente> &listaClientes)
             return;
         }
     }
+
+    cout << "\t==========CLIENTE NÃO ENCONTRADO===========\n";
+    pause();
+    return;
 }

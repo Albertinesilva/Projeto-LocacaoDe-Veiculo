@@ -87,6 +87,29 @@ bool verificaDataNascimento(const Data &dataNascimento)
     int mesAtual = dataHoraAtual->tm_mon + 1;
     int anoAtual = dataHoraAtual->tm_year + 1900;
 
+    if(dataNascimento.ano > anoAtual){
+        cout << "\n\tData de nascimento inválida" << endl;
+        pause();
+        return false;
+    }else if(dataNascimento.ano == anoAtual){
+        if(dataNascimento.mes > mesAtual){
+            cout << "\n\tData de nascimento inválida" << endl;
+            pause();
+            return false;        
+        }else if(dataNascimento.mes== mesAtual){
+            if(dataNascimento.dia > diaAtual){
+                cout << "\n\tData de nascimento inválida" << endl;
+                pause();
+                return false;      
+            }else{
+                return true;
+            }
+        }
+    }
+
+
+    //-----------------------//
+
     int idade = anoAtual - dataNascimento.ano;
     if (mesAtual < dataNascimento.mes || (mesAtual == dataNascimento.mes && diaAtual < dataNascimento.dia))
     {

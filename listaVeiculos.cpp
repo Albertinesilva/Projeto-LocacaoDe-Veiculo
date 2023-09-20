@@ -65,9 +65,10 @@ void listarVeiculos(vector<Veiculo> &listaVeiculos)
 {
     limpaTela();
     cout << "\n\t===============LISTA DE VEICULOS============\n";
-    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it)
+    int i=0;
+    for (auto it = listaVeiculos.begin(); it != listaVeiculos.end(); ++it, i++)
     {
-        it->mostraVeiculo();
+        it->mostraVeiculo(i);
     }
     pause();
 }

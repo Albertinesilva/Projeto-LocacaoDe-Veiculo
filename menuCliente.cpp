@@ -38,6 +38,8 @@ int recebeEscolha()
     {
         mostraMenuCliente();
         cin >> escolha;
+        limpaBuffer();
+
 
         escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5);
 

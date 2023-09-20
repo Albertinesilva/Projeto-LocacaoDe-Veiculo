@@ -79,7 +79,6 @@ typedef struct
             do
             {
                 cout << "\n\tInsira uma data de retirada válida (dd/mm/aaaa) : ";
-                limpaBuffer();
                 getline(cin, data);
                 dataValida = (retiradaInserida.data.preencheData(data));
 
@@ -90,7 +89,6 @@ typedef struct
             do
             {
                 cout << "\n\tInsira uma hora de retirada válida (hh:mm:ss) : ";
-                limpaBuffer();
                 getline(cin, hora);
 
                 horaValida = retiradaInserida.hora.preencheHorario(hora);
@@ -128,7 +126,6 @@ typedef struct
             do
             {
                 cout << "\n\tInsira uma data de entrega válida (dd/mm/aaaa) : ";
-                limpaBuffer();
                 getline(cin, data);
 
                 dataValida = entregaInserida.data.preencheData(data);
@@ -139,7 +136,6 @@ typedef struct
             do
             {
                 cout << "\n\tInsira uma hora de entrega válida (hh:mm:ss) : ";
-                limpaBuffer();
                 getline(cin, hora);
 
                 horaValida = entregaInserida.hora.preencheHorario(hora);
@@ -214,8 +210,20 @@ typedef struct
 
     void mostraVeiculo()
     {
-        int i = 0;
-        cout << ++i << "\tVeiculo" << endl;
+        cout << "\tVeiculo" << endl;
+        cout << "\tRenavan : " << renavan << endl;
+        cout << "\tPlaca : " << placa << endl;
+        cout << "\n\tRetirada : "; retirada.data.mostraData();
+        cout << "\n\tHorário : "; retirada.hora.mostraHorario();
+        cout << "\n\tEntrega : "; entrega.data.mostraData();
+        cout << "\n\tHorário : "; entrega.hora.mostraHorario();
+        cout << "\tLoja de retirada : " << lojaRetirada << endl;
+        cout << "\t========================================\n";
+    }
+    
+    void mostraVeiculo(int posicao)
+    {
+        cout << (posicao+1) <<  "\tVeiculo" << endl;
         cout << "\tRenavan : " << renavan << endl;
         cout << "\tPlaca : " << placa << endl;
         cout << "\n\tRetirada : "; retirada.data.mostraData();

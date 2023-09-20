@@ -21,6 +21,7 @@ typedef struct
         {
             cout << "\n\tInsira um cpf válido(apenas numeros) : ";
             cin >> cpfInserido;
+            limpaBuffer();
 
             cpfValido = verificaCPF(cpfInserido);
 
@@ -46,7 +47,6 @@ typedef struct
         do
         {
             cout << "\n\tInsira um nome válido : ";
-            limpaBuffer();
             getline(cin, nomeInserido);
 
             nomeValido = verificaNome(nomeInserido);
@@ -75,7 +75,6 @@ typedef struct
         do
         {
             cout << "\n\tInsira uma data de nascimento válida : ";
-            limpaBuffer();
             getline(cin, data);
 
             dataNascInserida.preencheData(data);
@@ -106,6 +105,7 @@ typedef struct
         {
             cout << "\n\tInsira um número de cnh válido(apenas números) : ";
             cin >> cnhInserida;
+            limpaBuffer();
 
             cnhValida = verificaCNH(cnhInserida);
 
