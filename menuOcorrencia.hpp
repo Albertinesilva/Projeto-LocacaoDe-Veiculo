@@ -16,5 +16,4 @@ int recebeEscolhaOcorrencia();
 
 void realizaEscolhaOcorrencia(const int &escolha, vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo, vector<Locacao> &listaLocacao);
 
-printf("oi");
 #endif
