@@ -14,7 +14,6 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         cout << "\n\t[1] - GESTÃO CLIENTE:";
         cout << "\n\t[2] - GESTÃO VEICULO:";
         cout << "\n\t[3] - GESTÃO LOCAÇÃO:";
-        cout << "\n\t[4] - GESTÃO OCORRÊNCIA:";
         cout << "\n\t[0] - SAIR";
         cout << "\n\tENTRADA ->  ";
         cin >> escolha;
@@ -43,11 +42,7 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
 
             menuLocacao(listaClientes, listaVeiculos, listaLocacao);
             break;
-        
-        case 4:
-            menuOcorrencia(listaClientes,listaVeiculos,listaLocacao);
-            break;
-
+            
         default:
 
             break;
