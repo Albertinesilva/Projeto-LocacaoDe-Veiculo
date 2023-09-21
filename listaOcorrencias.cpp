@@ -52,30 +52,6 @@ void insereOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
 }
 
 void excluiOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao){
-    string cpfOcorrencia;
-    string placaOcorrencia;
-    
-    do{
-        cout << "Entre com a cpf valida de cliente para registro da ocorrencia : ";
-        getline(cin,cpfOcorrencia);
-    }while(!verificaCPF(cpfOcorrencia));
-
-    do{
-        cout << "Entre com a placa valida do carro para registro da ocorrencia : ";
-        getline(cin,placaOcorrencia);
-    }while(verificaPlaca(placaOcorrencia));
-
-    for(auto it=listaLocacao.begin() ; it!=listaLocacao.end() ; it++){
-        if(it->cliente.cpf==cpfOcorrencia && it->veiculo.placa==placaOcorrencia){
-            if(it->ocorrencia.ativa==true){
-                it->ocorrencia.ativa = false;
-                cout << "Ocorrencia excluida com sucesso " << endl;
-                return;
-            }
-        }
-    }
-    cout << "Locação não encontrada" << endl;
-    return;
 
 }
 
