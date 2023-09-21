@@ -19,7 +19,6 @@ void mostraMenuOcorrencia()
     cout << "\n\t[0] - SAIR";
     cout << "\n\tENTRADA ->  ";
 }
-printf("a");
 
 void menuOcorrencia(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo, vector<Locacao> &listaLocacao)
 {
